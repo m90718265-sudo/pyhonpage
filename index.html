@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>سایت آموزش پایتون</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #000;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .light {
+      background: #fff;
+      color: #000;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .page {
+      padding: 20px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: transform 0.6s;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      margin: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #infoBox {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body id="body">
+  <div class="container">
+    <button onclick="toggleTheme()">تغییر تم</button>
+    <button id="nextBtn" onclick="flipPage('next')">ورق به جلو</button>
+    <button id="prevBtn" onclick="flipPage('prev')">ورق به عقب</button>
+    <button onclick="showInfo()">نمایش مشخصات من</button>
+
+    <div id="page1" class="page">
+      <h2>زبان برنامه‌نویسی پایتون</h2>
+      <p>پایتون یکی از محبوب‌ترین زبان‌های برنامه‌نویسی دنیاست که به دلیل سادگی و قابلیت خوانایی بالا شناخته شده است.</p>
+      <p>این زبان در زمینه‌های مختلفی مانند توسعه وب، علم داده، هوش مصنوعی، اتوماسیون و برنامه‌نویسی عمومی کاربرد دارد.</p>
+      <p>پایتون دارای یک جامعه بزرگ و فعال است و کتابخانه‌ها و چارچوب‌های بسیاری برای آن توسعه یافته‌اند.</p>
+      <p>یکی از ویژگی‌های برجسته پایتون، نحو ساده و نزدیک به زبان طبیعی است که یادگیری آن را آسان می‌کند.</p>
+      <p>پایتون از چندین سبک برنامه‌نویسی پشتیبانی می‌کند، از جمله برنامه‌نویسی شی‌گرا، تابعی و دستوری.</p>
+      <p>کدهای پایتون به راحتی قابل خواندن و نگهداری هستند و این باعث محبوبیت آن در بین توسعه‌دهندگان شده است.</p>
+      <p>از پایتون می‌توان برای ساخت وبسایت‌ها با استفاده از چارچوب‌هایی مثل Django و Flask استفاده کرد.</p>
+      <p>همچنین در علم داده و تحلیل داده‌ها، کتابخانه‌هایی مثل Pandas، NumPy و Matplotlib نقش مهمی دارند.</p>
+      <p>در حوزه هوش مصنوعی و یادگیری ماشین، TensorFlow و PyTorch ابزارهای قدرتمندی هستند که با پایتون کار می‌کنند.</p>
+      <p>پایتون برای اسکریپت‌نویسی و اتوماسیون کارهای تکراری نیز بسیار مناسب است.</p>
+    </div>
+
+    <div id="page2" class="page" style="display:none;">
+      <p>با استفاده از پایتون می‌توان برنامه‌های دسکتاپ و بازی‌های ساده نیز ساخت.</p>
+      <p>این زبان همچنین در اینترنت اشیاء (IoT) و رباتیک کاربرد دارد.</p>
+      <p>پایتون یک زبان متن‌باز است و می‌توان بدون محدودیت از آن استفاده کرد.</p>
+      <p>یکی از دلایل محبوبیت پایتون، مستندات کامل و منابع آموزشی فراوان است.</p>
+      <p>با یادگیری پایتون، می‌توان در زمینه‌های مختلف فناوری اطلاعات و نرم‌افزار ورود کرد.</p>
+      <p>پایتون همواره به‌روزرسانی می‌شود و ویژگی‌های جدید و بهبود عملکرد را ارائه می‌دهد.</p>
+      <p>کار با پایتون باعث می‌شود برنامه‌نویس سریع‌تر و با خطای کمتر کدنویسی کند.</p>
+      <p>زبان پایتون دارای مدیریت حافظه خودکار و جمع‌آوری زباله است که کار توسعه‌دهنده را ساده می‌کند.</p>
+      <p>با پایتون می‌توان تست نرم‌افزار و اتوماسیون فرآیندها را انجام داد.</p>
+      <p>پایتون قابلیت ترکیب با سایر زبان‌ها مانند C و Java را دارد و می‌تواند به عنوان رابط بین سیستم‌ها استفاده شود.</p>
+    </div>
+
+    <div id="page3" class="page" style="display:none;">
+      <p>پایتون در آموزش برنامه‌نویسی به دانش‌آموزان و مبتدیان بسیار محبوب است.</p>
+      <p>این زبان به دلیل سادگی و خوانایی بالا باعث می‌شود افراد زودتر اصول برنامه‌نویسی را درک کنند.</p>
+      <p>کتابخانه‌های گرافیکی مانند Tkinter امکان ساخت رابط کاربری گرافیکی را فراهم می‌کنند.</p>
+      <p>در علوم داده، یادگیری ماشین و تحلیل آماری، پایتون یکی از ابزارهای اصلی است.</p>
+      <p>پایتون به توسعه‌دهندگان اجازه می‌دهد الگوریتم‌ها و مدل‌ها را سریع پیاده‌سازی کنند.</p>
+      <p>این زبان همچنین در زمینه وب‌سرویس‌ها و API‌ها کاربرد دارد.</p>
+      <p>پایتون می‌تواند داده‌های بزرگ را پردازش کرده و تحلیل‌های پیچیده انجام دهد.</p>
+      <p>کار با فایل‌ها، دیتابیس‌ها و شبکه‌ها با پایتون آسان و سریع است.</p>
+      <p>کتابخانه‌های متعدد پایتون باعث می‌شوند توسعه‌دهنده نیاز به نوشتن کد از صفر نداشته باشد.</p>
+      <p>در نهایت، یادگیری پایتون در هر سطحی، از مبتدی تا حرفه‌ای، بسیار ارزشمند است و در پروژه‌های واقعی کاربرد فراوان دارد.</p>
+    </div>
+
+    <div id="infoBox"></div>
+  </div>
+
+  <script>
+    let currentPage = 1;
+
+    function toggleTheme() {
+      document.getElementById("body").classList.toggle("light");
+    }
+
+    function flipPage(direction) {
+      const pages = ["page1", "page2", "page3"];
+      if(direction === 'next' && currentPage < pages.length) {
+        document.getElementById(pages[currentPage - 1]).style.display = "none";
+        currentPage++;
+        document.getElementById(pages[currentPage - 1]).style.display = "block";
+      } else if(direction === 'prev' && currentPage > 1) {
+        document.getElementById(pages[currentPage - 1]).style.display = "none";
+        currentPage--;
+        document.getElementById(pages[currentPage - 1]).style.display = "block";
+      }
+      // مدیریت وضعیت دکمه‌ها
+      document.getElementById("nextBtn").disabled = currentPage === pages.length;
+      document.getElementById("prevBtn").disabled = currentPage === 1;
+      document.getElementById("nextBtn").innerText = currentPage === pages.length ? "پایان" : "ورق به جلو";
+    }
+
+    // در ابتدا دکمه عقب غیرفعال باشد
+    document.getElementById("prevBtn").disabled = true;
+
+    function showInfo() {
+      let box = document.getElementById("infoBox");
+      box.style.display = "block";
+      box.innerHTML = "<b>نام:</b> امیرعلی کیانی<br><b>سازنده سایت</b>";
+    }
+  </script>
+</body>
+</html>
